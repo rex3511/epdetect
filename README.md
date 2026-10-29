@@ -1,5 +1,7 @@
 # epdetect
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L6X129OAZT)
+
 A local AI-powered service that identifies and renames unlabeled TV episodes from their subtitle files.
 
 ## How it works
