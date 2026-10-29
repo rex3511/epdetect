@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  epdetect:
+    build: ./epdetect
+    container_name: epdetect
+    ports:
+      - "8000:8000"
+    environment:
+      - TMDB_READ_ACCESS_TOKEN=${TMDB_READ_ACCESS_TOKEN}
+      - TMDB_CACHE_DIR=${TMDB_CACHE_DIR:-/data/.tmdb_cache}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - LM_STUDIO_URL=${LM_STUDIO_URL:-http://host.docker.internal:1234}
+      - SUMMARY_MODEL=${SUMMARY_MODEL:-google/gemma-4-e4b}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-text-embedding-nomic-embed-text-v1.5}
+      - CLEF_MODEL=${CLEF_MODEL:-cloudflare_clef-flash}
+      - JEV_MODEL=${JEV_MODEL:-typesafe/jev-router}
+      - CONFIDENCE_THRESHOLD=${CONFIDENCE_THRESHOLD:-0.85}
+      - OUTPUT_DIR=${OUTPUT_DIR}
+    volumes:
+      - ${DATA_DIR:-./data}:/data
+      - ${OUTPUT_DIR:-./output}:/output
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    entrypoint: ["python", "app.py"]
