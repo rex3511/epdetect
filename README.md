@@ -1,6 +1,7 @@
 # epdetect
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L6X129OAZT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A local AI-powered service that identifies and renames unlabeled TV episodes from their subtitle files.
 
@@ -136,3 +137,7 @@ Each detection returns the match plus pipeline diagnostics:
 ```bash
 docker compose down
 ```
+
+## License
+
+[MIT](LICENSE)
